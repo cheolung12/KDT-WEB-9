@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>설문조사 폼 만들기</title>
+    <title>카페 테이블</title>
 </head>
 <body>
-    <h2>설문조사</h2>
-    이름 <input type="text" name="name"  /><br />
-    이메일 <input type="text" name="name" placeholder="qqq@naver.com"/>
-
-    <h4>나이</h4>
-    <input type="radio" name="age"/> 10대
-    <input type="radio" name="age"/> 20대
-    <input type="radio" name="age"/> 30대
-    <input type="radio" name="age"/> 40대
-    <input type="radio" name="age"/> 50대
-    <input type="radio" name="age"/> 60대 이상
-
-    <h4>원하는 강의 (복수응답가능합니다.)</h4>
-    <input type="checkbox" /> html
-    <input type="checkbox" /> javascript
-    <input type="checkbox" /> css
-    <br /><br />
-
-    <textarea rows="6" cols="80" placeholder="하고 싶은 말을 써주세요 :)" ></textarea>
-    <input type="button" value="제출"/>
+    <table border="2" cellspacing="0">
+        <tr height="50">
+            <th  width="100">구분</th>
+            <th width="200">음료</th>  
+            <th width="100">가격</th>
+            <th width="200">이미지</th>
+        </tr>
+        <tr align="center" height="200">
+            <td  border="2" rowspan="2"> 커피류 </td>
+            <td > 아메리카노 </td>
+            <td> 4200원 </td>
+            <td> <img  src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[110563]_20210426095937808.jpg" height="180"/> </td>
+        </tr>
+        <tr align="center" height="200"> 
+            <td> 돌체라떼 </td>
+            <td> 4800원 </td>
+            <td> <img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[128692]_20210426091933665.jpg" height="180"/> </td>
+        </tr>
+        <tr align="center" height="200">
+            <td rowspan="2"> 주스류 </td>
+            <td> 자바칩 프라푸치노 </td>
+            <td rowspan="2"> 5000원 </td>
+            <td> <img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[168066]_20210415154429750.jpg" height="180"/> </td>
+        </tr>
+        <tr align="center" height="200">
+            <td> 녹차 프라푸치노 </td>
+            <td> <img src="https://image.istarbucks.co.kr/upload/store/skuimg/2021/04/[9200000002502]_20210426100408048.jpg" height="180"/> </td>
+        </tr>
+    </table>
 </body>
 </html>

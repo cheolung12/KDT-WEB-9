@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>input 태그</h2>
+    <div>사용자에게 값을 입력받을 때 사용, inline 요소</div>
+    <br />
+    <ul>
+    <li><b>name 속성</b> : 무엇을 받을것인지 명시, 백엔드에 정보 전송할때 사용 ex) phone, address ...</li>
+    <li><b>placeholder 속성</b> : 사용자가 무슨 값을 입력해야 하는지 알려주는 일종의 안내메시지 역할, 연한 글씨체로 표시</li>
+    <li><b>value 속성</b> : input태그의 값을 지정, text에서는 기본값으로 button에서는 기능 명시용</li> 
+    </ul>
+    <br />
+    <h3>text, password 타입 (+버튼태그)</h3>
+    <input type="text" name="name"  placeholder="type: text" value=""/>
+    <input type="button" value="제출">
+    <!-- button 태그의 기본 type은 submit -> 폼 제출용도, 페이지 이동된다-->
+    <button type="button">버튼 태그</button> 
+    <br />
+    <input type="password" placeholder="type: password" />
+    <br />
+    <br />
+    <h3>checkbox 타입 (중복 가능)</h3>
+    <div>checkbox의 경우 text와 같이 value속성을 명시해주는게 좋다 (백엔드 데이터 전송시)</div>
+    <br />
+    <input type="checkbox" name="hobby" value="야구" checked /> 야구
+    <input type="checkbox" name="hobby" value="축구" /> 축구
+    <br /><br />
+    <h3>radio 타입 (중복 불가 - name속성 기준)</h3>
+    <input type="radio" name="gender" value="남자" /> 남자
+    <input type="radio" name="gender" value="여자" /> 여자
+    <br /><br />
+    <h3>radio 타입 - 라벨 활용</h3>
+    <input type="radio" name="favorite" value="야구" id="야구"/>야구
+    <input type="radio" name="favorite" value="줄넘기" id="줄넘기"/>
+    <label for="줄넘기">줄넘기</label>
+    <br /><br /> 
+    <h3>date 타입</h3>
+    <input type="date" name="birth" />
+    <!-- 시간도 입력 받기 -->
+    <input type="datetime-local" name="birth-time" />
+    <br /><br />
+    <h3>select 태그 - 목록박스</h3>
+    <select name="select-name">
+      <!-- 결과 화면을 보면 optgroup 왜 쓰는지 알게 될거임 -->
+      <optgroup label="옵션1~2">
+        <option value="opt1">옵션1</option>
+        <option value="opt2" selected>옵션2</option>
+      </optgroup>
+      <optgroup label="옵션3~4">
+        <option value="opt3">옵션3</option>
+        <option value="opt4" disabled>옵션4</option>
+      </optgroup>
+    </select>
+    <br /><br />
+    <h3>input 태그의 disabled와 readonly</h3>
+    <input type="text" name="email" value="qqq@naver.com"  disabled/>
+    <input type="text" name="email" value="qqq@naver.com" readonly />
+</body>
+</html>

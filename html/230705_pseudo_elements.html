@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=x, initial-scale=1.0">
+    <title>Pesudo Elements</title>
+    <style>
+        /* 가상 요소 :: 콜론 두개로 */
+        /* 빈 값이라도 넣어야 적용된다 */
+        .example::after {
+            content: ">";
+            color: red;
+        }
+        .example::before {
+            content: "<";
+            color: red;
+        }
+        /* 속성 선택자  [속성이름=속성값] */
+        /* 조건이 부정이어야 할 경우 not 연산자와 같이 사용 */
+        [type="password"]{
+            background-color: pink;
+        }
+        [disabled]{
+            color: rgba(128, 128, 128, 0.432);
+        }
+        [value]{
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="example" >
+        디브
+    </div>
+    <br />
+    <input type="text" value="HEROPY" />
+    <br />
+    <input type="password" value="1234" />
+    <br />
+    <input type="text" value="ABCD" disabled />
+</body>
+</html>

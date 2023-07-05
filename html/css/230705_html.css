@@ -1,16 +1,33 @@
-* {
-    color: white;
-    background-color: gray
+span.orange{
+    color: orange;
 }
 
-span{
-    background-color: red;
+/* 자식 선택 (바로 아래 자식만): > */
+div > p{
+    color: navy;
 }
 
-#first{
-    background-color: blue;
+div > .orange{
+    color: orange;
 }
 
-.second {
-    background-color: green;
+div > ul > .orange {
+    color: orange;
+}
+
+/* 하위 요소 선택 (모든 자식): 띄어쓰기 */
+/* 자식 선택자가 더 우선순위 높아서 미적용 */
+div .orange {
+    color: green;
+}
+
+/* 인접 형제 선택자(바로 다음 형제만): +  */
+ul + div {
+    color: blueviolet;
+}
+
+/* 일반 형제 선택자 (형제 요소 모두 선택): ~ */
+.apple ~ li {
+    font-weight: 900;
+    font-size: 25px;
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 가상 선택자는 :(콜론)을 사용! */
+        /* hover -> 마우스 올라왔을 때 */
+        a:hover {
+            background-color: red;
+        }
+        button {
+            color: red;
+        }
+        
+        button:hover{
+            background-color: blue;
+            color: white;
+        }
+
+        /* active -> 마우스 클릭중일때 */
+        a:active{
+            color: yellow;
+        }
+
+        /* focus -> 커서 이동 */
+        .name-input:focus {
+            color: white;
+            background-color: orange;
+        }
+
+        .fruits span:first-child{
+            color: red;
+        }
+        /* div는 바로 밑 자식에 없기 때문에 스타일 적용이 안됨 */
+        .fruits div:first-child{
+            color: orange
+        }
+
+        .fruits h3:last-child{
+            color: red;
+        }
+
+        .fruits *:nth-child(2){
+            background-color: green;
+            color: white;
+        }
+        /* n은 0부터 시작 */
+        /* 우선순위 때문에 딸기에는 적용 x */
+        .fruits *:nth-child(2n+1){
+            color: blue;
+        }
+
+        /* 부정 선택자 */
+        .fruits *:not(.orange){
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 가상클래스 -->

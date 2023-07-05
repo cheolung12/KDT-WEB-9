@@ -1,25 +1,7 @@
-p.lion {
-    background-color: red;
-}
-ul > .lion{
-    background-color: greenyellow;
-}
-#tiger {
+.stripes *:nth-child(2n){
     background-color: yellow;
 }
-
-.lion{
-    color: sienna;
-}
-
-div .lion {
-    font-weight: bold;
-}
-
-#tiger + li{
-    background-color: skyblue;
-}
-
-li.lion ~ li{
-    background-color: orange;
+.stripes *:nth-child(2n+1){
+    background-color: navy;
+    color: white;
 }

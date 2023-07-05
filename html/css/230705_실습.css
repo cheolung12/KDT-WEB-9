@@ -1,7 +1,9 @@
-.stripes *:nth-child(2n){
-    background-color: yellow;
+[disabled]{
+    background-color: red;
 }
-.stripes *:nth-child(2n+1){
-    background-color: navy;
-    color: white;
+[placeholder="이름"]{
+    background-color: orange;
+}
+input:not([placeholder]){
+    background-color: blue;
 }

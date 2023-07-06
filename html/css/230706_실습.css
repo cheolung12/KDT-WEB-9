@@ -1,15 +1,16 @@
-div {
-    width: 100px;
-    height: 100px;
-    border-width: 1px 2px 3px 4px;
-    border-style: dashed dotted double groove;
-    border-color: blue red green yellow;
-    margin-bottom: 50px;
-    border-radius: 5px 20px 10px 0px;
+.blue-box{
+    width: 20vw;
+    height: 20vw;
+    background-color: blue;
+    padding-top: 22px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    
 }
-.border-2{
-    border-left: 3px solid gray;
-    border-right: 2px groove khaki;
-    border-top: 4px dashed purple;
-    border-bottom: 7px groove orange;
+
+.orange-box{
+    width: 100px;
+    height: 10vw;
+    background-color: orange;
 }

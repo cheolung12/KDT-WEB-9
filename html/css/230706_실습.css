@@ -10,5 +10,5 @@ body {
     color: white;
     text-align: center;
     display: inline-block;
-    margin-top: 40vh;
+    margin-top: Calc(50vh - 10vw);
 }

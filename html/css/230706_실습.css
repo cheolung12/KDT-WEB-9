@@ -1,0 +1,23 @@
+div {
+    width: 200px;
+    height: 100px;
+    margin-right: 30px;
+    display: inline-block;
+}
+.wrap {
+    background-color: orange;
+    height: 200px;
+    width: auto;
+}
+.html {
+    background-color: skyblue;
+    display: inline-block;
+}
+.css {
+    background-color: green;
+    display: inline-block;
+}
+.js {
+    background-color: red;
+    display: inline-block;
+}

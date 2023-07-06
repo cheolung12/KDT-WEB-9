@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            box-sizing: border-box;
+        }
+        .border-1{
+            border-width: 3px;
+            border-color: gray lightgray gray lightgray;
+            border-style: solid;
+            margin-bottom: 20px;
+            
+        }
+        .border-2 {
+            border: 5px solid black; /* width style color 순서 */
+            border-left: 5px dashed red;
+            border-top-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box border-1"></div>
+    <div class="box border-2"></div>
+</body>
+</html>

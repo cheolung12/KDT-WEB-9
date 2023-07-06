@@ -5,6 +5,7 @@ div {
     border-style: dashed dotted double groove;
     border-color: blue red green yellow;
     margin-bottom: 50px;
+    border-radius: 5px 20px 10px 0px;
 }
 .border-2{
     border-left: 3px solid gray;

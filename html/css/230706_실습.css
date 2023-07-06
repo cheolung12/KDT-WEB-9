@@ -1,14 +1,14 @@
-body {
-    background-color:rgb(246, 242, 216);
-    text-align: center;
+div {
+    width: 100px;
+    height: 100px;
+    border-width: 1px 2px 3px 4px;
+    border-style: dashed dotted double groove;
+    border-color: blue red green yellow;
+    margin-bottom: 50px;
 }
-.kdt {
-    width: 10vw;
-    height: 10vw;
-    line-height: 10vw;
-    background-color: blue;
-    color: white;
-    text-align: center;
-    display: inline-block;
-    margin-top: Calc(50vh - 5vw);
+.border-2{
+    border-left: 3px solid gray;
+    border-right: 2px groove khaki;
+    border-top: 4px dashed purple;
+    border-bottom: 7px groove orange;
 }

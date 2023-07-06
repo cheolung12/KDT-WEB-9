@@ -11,13 +11,10 @@ div {
 }
 .html {
     background-color: skyblue;
-    display: inline-block;
 }
 .css {
     background-color: green;
-    display: inline-block;
 }
 .js {
     background-color: red;
-    display: inline-block;
 }

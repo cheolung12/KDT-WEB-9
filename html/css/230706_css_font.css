@@ -1,0 +1,17 @@
+:root {
+  font-size: 16px;
+  font-family: sans-serif;  /* 바탕 체 글꼴 */
+}
+main {
+  font-size: 20px;
+}
+.font-px {
+  font-size: 20px;
+}
+.font-em {
+  font-size: 1.5em;
+  line-height: 2;  /* 행간, font-size 2배의 높이, px등 맘대로 지정해도됨 */
+}
+.font-rem {
+  font-size: 1.5rem;
+}

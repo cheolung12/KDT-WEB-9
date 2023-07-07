@@ -1,24 +1,14 @@
-div {
-    margin-top: 300px;
-    position: relative;
-}
-img {
-    width: 200px;
-    height: 150px;
-    transform: skewY(35deg);
-    position: absolute;
-
-}
-
-#one {
-    z-index: 3;
+.box {
+    background-color: black;
+    color: white;
+    width: 100px;
+    height: 100px;
+    transition: 1s 0.5s;
+    overflow: scroll;
     
 }
-#two {
-    z-index: 2;
-    left: 120px;
-}
-#three {
-    z-index: 1;
-    left: 240px;
+
+.box:hover{
+    width: 300px;
+    height: 300px;
 }

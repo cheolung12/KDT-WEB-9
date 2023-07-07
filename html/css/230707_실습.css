@@ -1,23 +1,40 @@
-div {
-    width: 800px;
+.container{
+    width: 500px;
     height: 500px;
-    background-color: skyblue;
-    background-image: url('https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a');
+    display: flex;
+}
+.container > div {
+    width: 100px;
+    height: 100px;
+}
+.container.two {
+    flex-wrap: wrap;
 }
 
+.divone {
+    background-color: red;
+}
+.divtwo {
+    background-color: green;
+}
+.divthree {
+    background-color: blue;
+}
+.divfour {
+    background-color: orange;
 
-.one {
-    background-repeat: repeat-x;
-    background-position: center;
 }
 
-.two {
-    background-size: contain;
-    background-position: 100px 30px;
-    background-repeat: no-repeat;
+.divfive {
+    background-color: yellow;
 }
-.three {
-    background-size: cover;
-    background-position: 200px 100px;
-    background-repeat: no-repeat;
+
+.divsix {
+    background-color: navy;
+}
+.divseven {
+    background-color: purple;
+}
+.diveight {
+    background-color: black;
 }

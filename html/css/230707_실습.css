@@ -5,28 +5,72 @@ div {
 
 .container {
     width: 500px;
-    height: 500px;
+    height: 200px;
     position: relative;
-    background-color: pink;
 }
-
-.item-1 {
-    background-color: red;
-    position: relative;
-    top: 30px;
-    left: 50px;
-}
-
-.item-2 {
-    background-color: green;
+.container > div {
+    border-radius: 50%;
     position: absolute;
-    right: 30px;
-    bottom: 100px;
 }
 
-.item-3 {
+.one {
+    top: 30px;
+    left: 60px;
+    background-color: red;
+    z-index: 90;
+}
+.two {
+    top: 50px;
+    left: 140px;
     background-color: blue;
-    position: fixed;
-    right: 100px;
-    top: 100px;
+    z-index: 96;
+}
+.three {
+    top: 80px;
+    left: 180px;
+    background-color: green;
+    z-index: 97;
+}
+
+.four {
+    top: 80px;
+    left: 250px;
+    background-color: pink;
+    z-index: 98;
+}
+
+.five {
+    top: 80px;
+    left: 320px;
+    background-color: purple;
+    z-index: 100;
+}
+
+img {
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.eye1 {
+    background-color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    left: 23px;
+    top: 20px;
+}
+
+.eye2 {
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    
+    top: 7px;
 }

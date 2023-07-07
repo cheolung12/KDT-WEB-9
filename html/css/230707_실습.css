@@ -1,54 +1,24 @@
-.container{
-    background-color: lightgray;
-    width: 500px;
-    height: 500px;
-    display: flex;
-    
-   
+div {
+    margin-top: 300px;
+    position: relative;
 }
-.container > div {
-    width: 100px;
-    height: 100px;
+img {
+    width: 200px;
+    height: 150px;
+    transform: skewY(35deg);
+    position: absolute;
+
 }
 
-.container.one {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center; /* 전체에서 가운데 정렬 */
+#one {
+    z-index: 3;
     
 }
-
-.container.two {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; /* 각 행 마다 가운데 정렬 */
+#two {
+    z-index: 2;
+    left: 120px;
 }
-
-
-.divone {
-    background-color: red;
-}
-.divtwo {
-    background-color: green;
-}
-.divthree {
-    background-color: blue;
-}
-.divfour {
-    background-color: orange;
-
-}
-
-.divfive {
-    background-color: yellow;
-}
-
-.divsix {
-    background-color: navy;
-}
-.divseven {
-    background-color: purple;
-}
-.diveight {
-    background-color: black;
+#three {
+    z-index: 1;
+    left: 240px;
 }

@@ -1,76 +1,23 @@
 div {
-    width: 100px;
-    height: 100px;
+    width: 800px;
+    height: 500px;
+    background-color: skyblue;
+    background-image: url('https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a');
 }
 
-.container {
-    width: 500px;
-    height: 200px;
-    position: relative;
-}
-.container > div {
-    border-radius: 50%;
-    position: absolute;
-}
 
 .one {
-    top: 30px;
-    left: 60px;
-    background-color: red;
-    z-index: 90;
+    background-repeat: repeat-x;
+    background-position: center;
 }
+
 .two {
-    top: 50px;
-    left: 140px;
-    background-color: blue;
-    z-index: 96;
+    background-size: contain;
+    background-position: 100px 30px;
+    background-repeat: no-repeat;
 }
 .three {
-    top: 80px;
-    left: 180px;
-    background-color: green;
-    z-index: 97;
-}
-
-.four {
-    top: 80px;
-    left: 250px;
-    background-color: pink;
-    z-index: 98;
-}
-
-.five {
-    top: 80px;
-    left: 320px;
-    background-color: purple;
-    z-index: 100;
-}
-
-img {
-    position: absolute;
-    width: 400px;
-    height: 100px;
-    bottom: 0;
-    right: 0;
-    z-index: 99;
-}
-
-.eye1 {
-    background-color: white;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    position: absolute;
-    left: 23px;
-    top: 20px;
-}
-
-.eye2 {
-    background-color: black;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: absolute;
-    
-    top: 7px;
+    background-size: cover;
+    background-position: 200px 100px;
+    background-repeat: no-repeat;
 }

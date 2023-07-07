@@ -1,26 +1,19 @@
-.container {
-    height: 1000px;
-    display: flex;
-
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: flex-start;
+img {
+    width: 200px;
+    height: 200px;
 }
 
-.container > div, .container-1 > div {
-    width: 100px;
-    height: 100px;
+img#translate:hover{
+    transform: translate(100px, 40px);
 }
 
-.red {
-    background-color: red;
+img#scaleX:hover {
+    transform: scaleX(2);
 }
-
-.orange {
-    background-color: orange;
+img#rotate:hover {
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
 }
-
-.yellow {
-    background-color: yellow;
+img#skew:hover {
+    transform: skewX(45deg);
 }

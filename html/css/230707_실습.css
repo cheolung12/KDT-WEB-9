@@ -1,15 +1,29 @@
 .container{
+    background-color: lightgray;
     width: 500px;
     height: 500px;
     display: flex;
+    
+   
 }
 .container > div {
     width: 100px;
     height: 100px;
 }
+
+.container.one {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center; /* 전체에서 가운데 정렬 */
+    
+}
+
 .container.two {
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* 각 행 마다 가운데 정렬 */
 }
+
 
 .divone {
     background-color: red;

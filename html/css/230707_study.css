@@ -1,18 +1,26 @@
 .container {
-    display: flex; /* 자식요소들을 inline-block으로 */
-    flex-direction: row-reverse;
+    height: 1000px;
+    display: flex;
+
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
 }
-.container > div {
+
+.container > div, .container-1 > div {
     width: 100px;
     height: 100px;
 }
-.red{
+
+.red {
     background-color: red;
 }
-.orange{
+
+.orange {
     background-color: orange;
 }
+
 .yellow {
     background-color: yellow;
 }

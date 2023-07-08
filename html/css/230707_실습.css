@@ -1,14 +1,55 @@
-.box {
-    background-color: black;
-    color: white;
-    width: 100px;
-    height: 100px;
-    transition: 1s 0.5s;
-    overflow: scroll;
-    
+.wrapper > div {
+  margin-bottom: 1.2rem;
 }
 
-.box:hover{
-    width: 300px;
-    height: 300px;
+.container {
+  background-color: rgb(219, 218, 218);
+  width: 100vw;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.7rem;
+  box-sizing: border-box;
+  padding: 0 1rem;
+}
+
+.container.one {
+  justify-content: space-between;
+}
+
+.container.one > div {
+  display: flex;
+}
+
+.container.one > div > div {
+  margin-left: 0.6rem;
+}
+
+.container.two {
+  justify-content: space-between;
+}
+
+.container.three {
+  justify-content: space-between;
+}
+.container.three > div {
+  display: flex;
+}
+
+.container.three > div > div {
+  margin: 0 0.3rem;
+}
+.container.four {
+  justify-content: space-between;
+}
+
+.container.four > div {
+  display: flex;
+}
+.container.four > .left > div {
+  margin-right: 0.6rem;
+}
+.container.four > .right > div {
+  margin-left: 0.6rem;
 }

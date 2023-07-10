@@ -1,0 +1,58 @@
+/* div {
+    position: absolute;
+    border-radius: 50%;
+    background-color: pink;
+    width: 100px;
+    height: 100px;
+    animation: drawsquare 3s ease-in 1s 6 normal; 
+}
+
+@keyframes drawsquare {
+    0%{
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+    25%{
+        top: 0px;
+        left: 300px;
+        right: 0px;
+        bottom: 0px;
+    }
+    50%{
+        top: 300px;
+        left: 300px;
+        right: 0px;
+        bottom: 0px;
+    }
+    75%{
+        top: 300px;
+        left: 0px;
+        right: 300px;
+        bottom: 0px;
+    }
+    100%{
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 100px;
+    }
+} */
+
+p {
+    animation: slidein 4s ease 1 alternate
+}
+
+@keyframes slidein {
+    from {
+      margin-left:100%;
+      width:300%
+    }
+  
+    to {
+     margin-left:0%;
+     width:100%;
+   }
+  }
+  

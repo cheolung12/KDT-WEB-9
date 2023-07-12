@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+      }
+      .red {
+        background-color: red;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="red" class="box red"><span>빨간상자</span></div>
+      <div id="orange" class="box orange"></div>
+      <div class="box yellow"></div>
+    </div>
+    <input type="text" name="aaa" />
+    <button type="button" onclick="redToggle()">깜빡 깜빡</button>
+    <br />
+    <button type="button" onclick="createGreenBox()">생겨라</button>
+    <button type="button" onclick="removeBox()">사라져라</button>
+    <script src="./dom.js"></script>
+  </body>
+</html>

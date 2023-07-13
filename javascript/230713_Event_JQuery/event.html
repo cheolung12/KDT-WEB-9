@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div onclick=""></div> -->
+    <button onclick="">버튼</button>
+    <br /><br /><br />
+    <input type="text" id="id" placeholder="id를 입력해 주세요" />
+    <input type="password" id="pw" placeholder="비밀번호를 입력해 주세요"/>
+    <input type="password" id="pw2" placeholder="비밀번호 확인"/>
+    <br />
+    <div style="width: 100px; height: 100px; background-color: red;"></div>
+    
+    <script>
+        let button = document.querySelector('button');
+        button.addEventListener("click", () => alert("클릭"))
+        let input = document.querySelector("input");
+        input.addEventListener("focus", (e) => {
+            e.target.style.backgroundColor="black";
+            console.log(e);
+        })
+        input.addEventListener("blur", (e) => {
+            e.target.style.backgroundColor="initial";
+        })
+
+        // key 이벤트 ex)로그인-엔터
+        let passInput = document.getElementById("pw");
+        passInput.addEventListener("keyup", (e) => {
+            if (e.key === 'Enter'){
+                alert('로그인');
+            }
+        });
+
+        // load : 웹페이지가 로드가 완료될 때 실행시키고 싶은 코드, 윈도우 객체에 있음
+        window.addEventListener("load", () => {
+            let div = document.querySelector("div");
+            div.style.marginLeft = "100px";
+        })
+        
+        // change
+        passInput.addEventListener("change", (e) => {
+            console.log(e.target.value);
+        })
+        document.getElementById("pw2").addEventListener("change", (e) => {
+            if(passInput.value  === e.target.value)
+                alert("같아용");
+            else
+                alert("달라요");
+        })
+
+
+    </script>
+</body>
+</html>

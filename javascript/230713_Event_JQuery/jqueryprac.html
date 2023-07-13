@@ -1,22 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Practice</title>
     <script
-    src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-    crossorigin="anonymous"></script>
-</head>
-<body>
-    <img alt="이미지"/>
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+      integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .sat {
+        color: blue;
+      }
+      .sun {
+        color: red;
+      }
+      .container{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        height: 600px;
+      }
+      td{
+        width: 50px;
+        height: 100px;
+      }
+
+    
+    </style>
+  </head>
+  <body>
+    <!-- <img alt="이미지"/>
     <br />
     <button onclick="handleClick(0)">사과</button>
     <button onclick="handleClick(1)">바나나</button>
     <button onclick="handleClick(2)">포도</button>
     <button onclick="handleClick(3)">복숭아</button>
+    <div class="box red" onclick="switchColor()"></div> -->
 
-    <script src="jqueryprac.js"></script>
-</body>
+    <header>
+      <label for="date" >날짜 : </label>
+      <input type="text" id="date" />
+      <br />
+      <label for="content" >내용 : </label>
+      <input type="text" id="content" />
+      <br />
+      <button type="button">작성</button>
+    </header>
+    <section class="container">
+      <div style="color: green; font-size: 2rem; font-weight:500; margin-bottom: 3rem; margin-top: 4rem;">2022년 7월</div>
+      <table>
+        <tr>
+          <th class="sun">日</th>
+          <th onclick="chooseDate()">月</th>
+          <th>火</th>
+          <th>水</th>
+          <th>木</th>
+          <th>金</th>
+          <th class="sat">土</th>
+        </tr>
+        <tr>
+          <td class="sun" ></td>
+          <td ></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="sat">1</td>
+        </tr>
+        <tr>
+          <td class="sun">2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td class="sat">8</td>
+        </tr>
+        <tr>
+          <td class="sun">9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td class="sat">15</td>
+        </tr>
+        <tr>
+          <td class="sun">16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td class="sat">22</td>
+        </tr>
+        <tr>
+          <td class="sun">23</td>
+          <td>24</td>
+          <td>25</td>
+          <td>26</td>
+          <td>27</td>
+          <td>28</td>
+          <td class="sat">29</td>
+        </tr>
+        <tr>
+          <td class="sun">30</td>
+          <td>31</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="sat"></td>
+        </tr>
+      </table>
+    </section>
+  </body>
+  <script src="jqueryprac.js"></script>
 </html>

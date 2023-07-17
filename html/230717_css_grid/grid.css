@@ -1,0 +1,100 @@
+/* 개발자 도구에서 요소에 있는 grid버튼을 클릭해 학습하자 */
+.container {
+    display: grid;
+    height: 500px;
+    /* grid-template-columns: 200px 200px 200px;  열의 개수 작성  */
+    /* grid-template-columns: repeat(3, 200px);  위와 같은 코드 */
+    /* grid-template-columns: repeat(3, 1fr);    fr : 등분, 기준 : 해당 요소의 너비  -> 1fr 4fr 2fr -> 1:4:3*/
+    /* grid-template-rows: repeat(3, 200px); */
+    /* minmax(최소 최대) */
+    /* grid-template-columns: repeat(3, minmax(100px, auto)); 최소 값보다 viewport를 줄이면 스크롤도 생긴다. */
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    /* row-gap: 20px;
+    column-gap: 20px; */
+    /* gap: 30px 40px; */
+    gap: 20px;
+
+    /* ~~~ items : item요소 (자식 요소)가 존재할 수 있는 영역 내에서 정렬 */
+    /* align-items: center;    각각의 아이템을 세로축 정렬 */
+    /* justify-items: center; 각각의 아이템을 가로축 정렬 */
+    /* place-items: center; 위에거 두개 합침 */
+    /* place-items: end center; 두 개 따로 작성가능  */
+    
+    /* ~~~~ content : 부모 요소 자체를 정렬 (컨테이너 영역 내에서) */
+    /* justify-content: center;    justify: 가로 */
+    /* align-content: center;      align: 세로 */
+    /* place-content: center; 위 두개 합침 */
+
+    /* 각각의 속성에 이름을 부여 */
+    grid-template-areas: 
+    'header header header'
+    'nav main aside'
+    'footer footer footer';
+
+    /* 비워두고 싶을 때 . 활용
+    grid-template-areas: 
+    'header . header'
+    'nav main aside'
+    'footer footer .'; */
+
+}
+
+.item {
+    /* width: 100px; */
+    /* height: 100px; */
+}
+
+.red {
+    background-color: red;
+    /* grid-row, grid-column : 행, 열 합치기 마지막 인덱스는 +1 */
+    /* grid-column: 1 / 4; 아래와 같은 코드 */
+    /* grid-column: 1 / span3;  아래와 같음*/
+    /* grid-column: auto / span 3; */
+    /* place-self: center;  */
+
+    grid-area: header;
+}
+
+.orange{
+    background-color: orange;
+    /* 원래 있던 자리에서 : auto,  2칸합침 : span2 */
+    /* grid-row: auto / span 2; */
+    /* place-self: center; */
+
+    grid-area: nav;
+}
+
+.yellow {
+    background-color: yellow;
+    /* 얘만 정렬하기 : self */
+    /* justify-self: center;
+    align-self: center; */
+    /* place-self: center; 두개 합친거 */
+
+    grid-area: main;
+}
+
+.green {
+    background-color: green;
+
+    grid-area: aside;
+}
+
+.blue {
+    background-color: blue;
+
+    grid-area: footer;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.purple {
+    background-color: purple;
+    /* order: -1; 임의 순서 설정 default: 0, 좋은방법은 아님 */
+}
+
+
+

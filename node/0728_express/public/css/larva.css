@@ -1,0 +1,70 @@
+.parent {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    background-color: aliceblue;
+}
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+}
+.circle1 {
+    background-color: #0A949E;
+    bottom: 50px;
+    right: 50px;
+    z-index: 6;
+}
+.circle2 {
+    background-color: #8FD2EC;
+    bottom: 50px;
+    right: 120px;
+    z-index: 4;
+}
+.circle3 {
+    background-color: red;
+    bottom: 50px;
+    right: 180px;
+    z-index: 3;
+}
+.circle4 {
+    background-color: orange;
+    bottom: 80px;
+    right: 240px;
+    z-index: 2;
+}
+.circle5 {
+    background-color: pink;
+    bottom: 120px;
+    right: 310px;
+    z-index: 1;
+}
+.eye1 {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 160px;
+    right: 350px;
+    z-index: 7;
+}
+.eye2 {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 175px;
+    right: 370px;
+    z-index: 8;
+}
+.img-size {
+    position: absolute;
+    width: 400px;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+}

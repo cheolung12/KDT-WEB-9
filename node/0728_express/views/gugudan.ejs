@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% for(let i = 1; i <= number.length; i++){ %>
+        <div>-----<%= number[i] %>단-----</div>
+        <% for (let j = 0; j <= number.length-1; j++){ %>
+            <div><%= number[i] %> x <%= number[j] %> = <%= number[i] * number[j] %></div>
+        <% } %>
+    <% } %>
+</body>
+<script>
+</script>
+</html>

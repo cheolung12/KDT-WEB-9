@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>callback</title>
+  </head>
+  <body>
+    <script>
+        function changeBg(color){
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = color;
+                    resolve();
+                }, 1000);
+            })
+        }
+        const colors = ['red', 'orange', 'yellow', 'green', 'blue'];
+        async function exec() {
+            for(let i=0; i<colors.length; i++){
+               await changeBg(colors[i]);
+            }
+        }
+        exec();
+    </script>
+  </body>
+</html>

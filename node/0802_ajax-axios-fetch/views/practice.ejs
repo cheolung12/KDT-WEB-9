@@ -9,14 +9,14 @@
             width: 300px;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <h1>실습 26. get으로 정보받기</h1>
-    <form action="/postForm" method="POST">
+    <h1>실습 29. axios get 회원가입</h1>
+    <form name="register">
         <label for="userName">이름 </label>
-        <input type="text" name="userName"/>
+        <input type="text" id="userName"/>
         <fieldset>
             <legend>성별</legend>
             <input type="radio" name="gender" value="남자" required>남자</input>
@@ -52,17 +52,31 @@
             <input type="checkbox" name="favorite" value="음식">음식</input>
         </fieldset>
         <br />
-        <fieldset>
-            <legend>선택</legend>
-            <label for="color">좋아하는 색상</label> 
-            <input type="color" name="color"></input> <br/>
-            <label for="url">블로그 주소</label>
-            <input type="url" name="url"></input>
-        </fieldset>
-        <br />
-        <input type="date" name="date" />
-        <br />
-        <button type="submit">회원가입</button>
+        <button type="button" onclick="axiosGet()">회원가입</button>
     </form>
+    <script>
+        function axiosGet(){
+            const form = document.forms["register"];
+            const checkbox = document.querySelectorAll('input[name="favorite"]:checked');
+            let checked = [];
+            checkbox.forEach((e) => checked.push(e.value));
+            const data = {
+                name: form.userName.value,
+                gender: form.gender.value,
+                year: form.year.value,
+                month: form.month.value,
+                day: form.day.value,
+                favorite: checked,
+            };
+            axios({
+                method: "GET",
+                url: "axios",
+                params: data,
+            }).then((res) => {
+                console.log('axios get 전송완료');
+                console.log(res.data);
+            });
+        }
+    </script>
 </body>
 </html>

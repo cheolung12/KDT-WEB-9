@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>FORM 싱글 연습</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="userFile" /><br />
+        <input type="text" name="title" /><br />
+        <button type="submit">업로드</button>
+    </form>
+    <br/><br/>
+    <h1>FORM 멀티 연습</h1>
+    <form action="/upload/array" method="post" enctype="multipart/form-data" >
+        <input type="file" name="userFiles" multiple /><br />
+        <input type="text" name="title"/><br />
+        <button type="submit">업로드</button>
+    </form>
+    <br /><br />
+    <h1>FORM 멀티 연습 (ver2)</h1>
+    <form action="/upload/fields" method="post" enctype="multipart/form-data">
+        <input type="file" name="userFile1" /><br />
+        <input type="text" name="title1"/><br />
+        <input type="file" name="userFile2" /><br />
+        <input type="text" name="title2"/><br />
+        <button type="submit">업로드</button>
+    </form>
+    <br /><br />
+    <h1>동적 파일 업로드</h1>
+    <input type="file" id="dynamic-file" /><br />
+    <input type="text" id="title"/><br />
+    <button type="button" onclick="fileupload()">동적 파일 업로드</button>
+    <br />
+    <div class="result"></div>
+</body>
+    <script>
+        const resultBox = document.querySelector(".result");
+        
+
+        const fileupload = () => {
+            const file = document.getElementById("dynamic-file");
+            console.log(file);
+            console.log(file.files[0]); // 배열형태임
+            const title = document.getElementById("title");
+
+            // 받는쪽이 multer(multipart-formdata)를 받기 때문에 여기서도 만들어줘야 함
+            const formData = new FormData();
+            formData.append('title', title.value);
+            // formData를 쓸때는 file은 항상 마지막에 안 그러면 파일 아래는 다 무시해버림
+            formData.append('dynamic-file', file.files[0]); // 첫번째 인자 : 백엔드에서 받는 값
+            
+            axios({
+                method: 'POST',
+                url: '/dynamicFile',
+                data: formData,
+                headers: {
+                    'Content-Type' : 'multipart/form-data'
+                }})
+                .then((res) => {
+                    console.log(res);
+                    resultBox.innerHTML = `<div><img src=${res.data.path}></div>`
+                })
+            
+        }
+    </script>
+</html>

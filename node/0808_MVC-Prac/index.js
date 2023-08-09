@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 const userRouter = require("./routes/user");
-app.use('/', userRouter);
+app.use('/user', userRouter);
 
 app.use("*", (_, res) => {
   res.render("404");

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    
+    <form method="POST" action="/">
+        이름: <input type="text" name="name" /><br />
+        비밀번호: <input type="password" /></input><br />
+        <button type="submit">로그인</button>
+    </form>
+    <!-- <form name="userInfo">
+        이름: <input type="text" name="name" /><br />
+        비밀번호: <input type="password" /></input><br />
+        <button type="button" onclick="send()">로그인</button>
+    </form> -->
+</body>
+    <!-- <script>
+        function send() {
+            const form = document.forms['userInfo'];
+            axios({
+                method:'POST',
+                url: '/result',
+                data: {
+                    name: form.name.value,
+                }
+            })
+        }
+    </script> -->
+</html>

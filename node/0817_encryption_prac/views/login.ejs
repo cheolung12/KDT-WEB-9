@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+    <form name="userInfo">
+        <label for="userId">ID : </label>
+        <input type="text" id="userId" name="userId" /><br />
+        <label for="userPw">PW : </label>
+        <input type="password" id="userPw" name="userPw" /><br />
+        <button type="button" onclick="login()">LogIn</button>
+    </form>
+    <script>
+        async function login() {
+            const form = document.forms['userInfo'];
+            const res = await axios({
+                method:'POST',
+                url: '/login',
+                data: {
+                    userId: form.userId.value,
+                    userPw: form.userPw.value
+                }});
+            if(!res.data.result){
+                alert('아이디/비밀번호가 올바르지 않습니다.')
+            }else{
+                alert('로그인 성공');
+                // localStorage.setItem('token', res.data.token);
+            }
+        }
+    </script>
+</body>
+
+</html>

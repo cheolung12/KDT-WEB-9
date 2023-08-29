@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <button id="hello">hello</button>
+    <button id="study">study</button>
+    <button id="bye">bye</button>
+    <br /><br/><br />
+    <b id="result"></b>
+    <script>
+      const result = document.querySelector('#result');
+      const hello = document.querySelector('#hello');
+      const study = document.querySelector('#study');
+      const bye = document.querySelector('#bye');
+
+      const socket = io();
+        // 클릭 이벤트 안에 emit on 둘 다 넣어도 됨
+      hello.addEventListener('click', () => socket.emit('hello', {value: 'hello'}));
+      study.addEventListener('click', () => socket.emit('study', {value: 'study'}));
+      bye.addEventListener('click', () => socket.emit('bye', {value: 'bye'}));
+      
+      socket.on('hello', (res) => {
+        result.textContent = res;
+      });
+      socket.on('study', (res) => {
+        result.textContent = res;
+      });
+      socket.on('bye', (res) => {
+        result.textContent = res;
+      });
+    </script>
+  </body>
+</html>

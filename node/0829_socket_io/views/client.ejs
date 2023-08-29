@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div>Socket IO</div>
+    <ul></ul>
+    <form id="chat">
+      <input type="text" id="user" placeholder="사용자명" />
+      <input type="text" id="message" placeholder="채팅내용" /><br />
+      <button>전송</button>
+    </form>
+    <script>
+      const chatForm = document.querySelector('#chat');
+      const ul = document.querySelector('ul');
+
+      const socket = io();
+
+      // 이밴트 생성
+      // socketio는 JSON.stringfy, parse 신경 안 써도 된다.
+      socket.emit(
+        'openMessage',
+        { name: 'client', message: 'Hello Server' },
+        true,
+        (res) => {
+          console.log('res', res);
+        }
+      );
+
+      socket.on('serverMessage', (obj) => {
+        const li = document.createElement('li');
+        li.textContent = `${obj.name}: ${obj.message}`;
+        ul.appendChild(li);
+      });
+
+      // 폼 이벤트
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const user = chatForm.querySelector('#user');
+        const message = chatForm.querySelector('#message');
+        socket.emit('formMessage', {
+          name: user.value,
+          message: message.value,
+        });
+        message.value = '';
+      });
+    </script>
+  </body>
+</html>

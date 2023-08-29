@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>투표 하기</h1>
+    <div>
+      <button id="typeOne">A타입</button>
+      <button id="typeTwo">B타입</button>
+    </div>
+    <div>
+      <h3>투표 결과</h3>
+      <p>A타입: <span id="resultOne">0</span></p>
+      <p>B타입: <span id="resultTwo">0</span></p>
+    </div>
+
+    <script>
+      const socket = new WebSocket('ws://localhost:8000');
+
+      //서버에 연결 요청
+      socket.addEventListener('open', (event) => {
+        //send() 함수는 백엔드로 메세지를 전송
+        console.log('서버에 연결되었습니다');
+      });
+      //메세지 주고 받음
+      socket.addEventListener('message', (event) => {
+        console.log(event.data);
+        console.log(typeof(event.data));    // string
+        const parse = JSON.parse(event.data);
+        console.log(parse);
+        console.log(typeof(parse)); // object
+        const AType = document.querySelector('#resultOne');
+        const BType = document.querySelector('#resultTwo');
+        AType.textContent = parse.typeOne;
+        BType.textContent = parse.typeTwo;
+      });
+      //오류이벤트
+      socket.addEventListener('error', (event) => {
+        console.log('오류가 발생하였습니다', event.error);
+      });
+
+      //종료이벤트
+      socket.addEventListener('close', () => {
+        console.log('서버와 연결이 종료됨');
+      });
+
+      const btn1 = document.querySelector('#typeOne');
+      const btn2 = document.querySelector('#typeTwo');
+
+      btn1.addEventListener('click', () => {
+        socket.send(JSON.stringify({vote: 'typeOne'}));
+      });
+
+      btn2.addEventListener('click', () => {
+        socket.send(JSON.stringify({vote: 'typeTwo'}));
+      });
+    </script>
+  </body>
+</html>

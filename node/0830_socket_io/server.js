@@ -18,13 +18,13 @@ app.get("/:room", (req, res) => {
     const room = req.params.room;
 });
 
-function getUsersInRoom(room) {
-    const users = [];
+function getUsersInRoom(room, id) {
+    const users = {};
     const clients = io.sockets.adapter.rooms.get(room);
     if (clients) {
         clients.forEach((socketId) => {
-            const userSocket = io.sockets.sockets.get(socketId);
-            users.push(userSocket.user);
+            const userName = io.sockets.sockets.get(socketId).user;
+            users[socketId] = userName;
         });
     }
     return users;
@@ -49,6 +49,7 @@ io.on("connection", (socket) => {
         //socket은 객체이며 원하는 값을 할당할 수 있음
         //채팅방 목록 갱신
         if (!roomList.includes(roomName)) {
+            
             roomList.push(roomName);
             //갱신된 목록은 전체가 봐야함
             io.emit("roomList", roomList);
@@ -59,10 +60,14 @@ io.on("connection", (socket) => {
     });
 
     socket.on("sendMessage", (message) => {
-        io.to(socket.room).emit(
-            "newMessage", message.message, message.nick
-        );
-        // sockets.to(socketId).emit("message", messageData)
+        if(message.userId != 'all'){
+            socket.emit("newMessage", message.message, message.nick, true);
+            io.to(message.userId).emit("newMessage", message.message, message.nick, true);
+        }else{
+            io.to(socket.room).emit(
+                "newMessage", message.message, message.nick, false
+            );
+        }
     });
 
     socket.on("disconnect", () => {

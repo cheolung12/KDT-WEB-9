@@ -1,11 +1,18 @@
-import Prac2 from './0918(2)';
-import './App.css';
+import {
+  ClassComponent,
+  FunctionComponent,
+  Event,
+  EventClass,
+} from '../src/components/0919_component';
+import '../src/App.css';
 
 function App() {
-  
   return (
     <>
-      <Prac2 />
+      <ClassComponent age={10} />
+      <FunctionComponent myclass={'kdt9'} />
+      <Event /> <br />
+      <EventClass />
     </>
   );
 }

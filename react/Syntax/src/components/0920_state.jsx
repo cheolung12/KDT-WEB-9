@@ -101,9 +101,9 @@ export class Board extends React.Component {
       inputWriter: '',
       inputTitle: '',
       comments: [],
-      searchCategory: 'writer',
-      searchContent: '',
-      filteredComments: [],
+      searchType: 'writer',
+      inputSearch: '',
+      filtered: [],
     };
   }
 
@@ -126,25 +126,23 @@ export class Board extends React.Component {
   };
 
   searchComment = () => {
-    const { searchCategory, searchContent, comments } = this.state;
-    let filteredComments = [];
-
-    if (searchCategory === 'writer') {
-      filteredComments = comments.filter((comment) =>
-        comment.writer.includes(searchContent)
-      );
-    } else if (searchCategory === 'title') {
-      filteredComments = comments.filter((comment) =>
-        comment.title.includes(searchContent)
-      );
-    }
-
-    this.setState({ filteredComments });
+    const { comments, searchType, inputSearch } = this.state;
+    const searchResult = comments.filter(el => {
+      // 문자열로 객체 키에 접근할때는 [] 사용!
+      const type = el[searchType];
+      console.log(type);
+      const include = type.includes(inputSearch);
+      if(!include) {
+        return false;
+      }
+      return true;
+    })
+    this.setState({filtered: searchResult});
   };
 
   render() {
     console.log(this.state);
-    const { inputWriter, inputTitle } = this.state;
+    const { inputWriter, inputTitle, comments, searchType, inputSearch, filtered } = this.state;
     return (
       <>
         <form>
@@ -169,32 +167,36 @@ export class Board extends React.Component {
           <button type='button' onClick={this.addComment}>
             작성
           </button>
-          <br />
+        </form>
+        <br />
+            
+        <form>
           <select
-            value={this.state.searchCategory}
+            value={searchType}
             onChange={(e) => {
-              this.setState({ searchCategory: e.target.value });
+              this.setState({ searchType: e.target.value });
             }}
           >
-            <option name='writer' value='writer'>
+            <option value='writer'>
               작성자
             </option>
-            <option name='title' value='title'>
+            <option value='title'>
               제목
             </option>
           </select>
           <input
             type='text'
             placeholder='검색어'
-            value={this.state.searchContent}
+            value={inputSearch}
             onChange={(e) => {
-              this.setState({ searchContent: e.target.value });
+              this.setState({ inputSearch: e.target.value });
             }}
           />
           <button type='button' onClick={this.searchComment}>
             검색
           </button>
         </form>
+
         <table border={1} cellSpacing={0}>
           <thead>
             <tr>
@@ -204,25 +206,15 @@ export class Board extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.filteredComments.length > 0
-              ? this.state.filteredComments.map((el, i) => {
-                  return (
-                    <tr key={i}>
-                      <td>{i + 1}</td>
-                      <td>{el.title}</td>
-                      <td>{el.writer}</td>
-                    </tr>
-                  );
-                })
-              : this.state.comments.map((el, i) => {
-                  return (
-                    <tr key={i}>
-                      <td>{i + 1}</td>
-                      <td>{el.title}</td>
-                      <td>{el.writer}</td>
-                    </tr>
-                  );
-                })}
+            {comments.map((el, i) => {
+              return (
+                <tr key={i}>
+                  <td>{i + 1}</td>
+                  <td>{el.title}</td>
+                  <td>{el.writer}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </>

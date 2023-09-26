@@ -1,0 +1,58 @@
+@import './utils.scss'; // import 할때는 _ 빼고 함, .scss도 생략가능
+
+// 중첩
+.SassComponent {
+  display: flex;
+  .box {
+    // width: 100px;
+    // height: 100px;
+    @include box(100px);
+    // & 연산자: 중첩안에서는 부모 선택자를 참조하여 치환해줌
+    &.red {
+      background-color: $color-red;
+    }
+    &.orange {
+      background-color: $color-orange;
+    }
+    &.yellow {
+      background-color: $color-yellow;
+    }
+    &.green {
+      background-color: $color-green;
+    }
+    &.blue {
+      background-color: blue;
+    }
+    &.navy {
+      background-color: navy;
+    }
+    &.purple {
+      background-color: purple;
+    }
+  }
+}
+
+.wrap {
+  position: relative;
+  @include box(150px);
+  .one {
+    background-color: $color-pink;
+    @include ani(100px, drawsquare1);
+  }
+  .two {
+    background-color: $color-yellow;
+    @include ani(200px, drawsquare2);
+  }
+  .three {
+    background-color: $color-green;
+    @include ani(300px, drawsquare3);
+  }
+}
+
+.prac {
+  position: absolute;
+  border-radius: 999px;
+  @include box(50px);
+}
+
+

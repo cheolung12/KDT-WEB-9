@@ -1,0 +1,56 @@
+// scss 파일명 앞에 _붙여서 생성하면 파일단위로 분리되어 컴파일 되지 않는다.
+
+// 변수 선언: $
+$color-red: rgb(255, 66, 66);
+$color-orange: orange;
+$color-yellow: yellow;
+$color-green: green;
+
+// 함수 선언: @mixin
+@mixin box($size) {
+  width: $size;
+  height: $size;
+  // 연산도 가능
+  // height: $size - 50px;
+}
+
+
+$color-pink: pink;
+
+@mixin ani($dist, $name) {
+    animation: $name 3s ease-in 1s 6 normal;
+     // #기호를 이용하여 문자열 보간 사용
+    @keyframes #{$name} {
+        0%{
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+        25%{
+            top: 0px;
+            left: $dist;
+            right: 0px;
+            bottom: 0px;
+        }
+        50%{
+            top: $dist;
+            left: $dist;
+            right: 0px;
+            bottom: 0px;
+        }
+        75%{
+            top: $dist;
+            left: 0px;
+            right: $dist;
+            bottom: 0px;
+        }
+        100%{
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: $dist;
+        }
+    } 
+    
+}

@@ -35,6 +35,20 @@ exports.edit_todo = async (req, res) => {
   }
 };
 
+exports.edit_todo_status = async (req, res) => {
+  let { id, done } = req.body;
+  if (done) done = 1;
+  else done = 0;
+  console.log(done);
+  try {
+    await Todo.update({ done }, { where: { id } });
+    res.json(true);
+  } catch (error) {
+    console.log(error);
+    res.json(false);
+  }
+}
+
 exports.delete_todo = async (req, res) => {
   const id = req.params.todoId;
   try {

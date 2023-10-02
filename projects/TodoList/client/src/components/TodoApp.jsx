@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import { FaTrashAlt } from 'react-icons/fa'
+import TodoList from './TodoList';
 
-export default function Todo() {
+export default function TodoApp() {
   const [todo, setTodo] = useState('');
   const [todoList, setTodoList] = useState([]);
   const [editTodoId, setEditTodoId] = useState(null);
@@ -41,7 +41,6 @@ export default function Todo() {
       } catch (error) {
         console.error(error);
       }
-
       setTodoList([...todoList, newTodo]);
     }
     setTodo('');
@@ -121,7 +120,7 @@ export default function Todo() {
 
   return (
     <div className='w-screen, h-screen flex justify-center items-center'>
-      <div className='flex-col justify-center items-center border-4 w-2/5 h-4/5'>
+      <div className='flex-col justify-center items-center  w-2/5 h-4/5'>
         <div className='bg-blue-500 text-white w-full font-bold h-12 py-2 box-border flex justify-center items-center'>
           ✌🏻 My Todo App
         </div>
@@ -142,45 +141,16 @@ export default function Todo() {
             +
           </button>
         </div>
-        {todoList.map((todo) => {
-          return (
-            <div
-              key={todo.id}
-              className='box-border w-full px-8 flex justify-between items-center h-12'
-            >
-              <div>
-                <input
-                  type='checkbox'
-                  id={todo.id}
-                  checked={todo.done}
-                  onChange={(e) => handleChecked(e, todo.id)}
-                  className='mr-3 w-4 h-4'
-                />
-                {editTodoId === todo.id ? (
-                  <input
-                    type='text'
-                    value={todo.title}
-                    onChange={(e) => handleEditChange(e, todo.id)}
-                    onBlur={() => setEditTodoId(null)}
-                    onKeyDown={(e) => handleLabelKeyPress(e, todo.id)}
-                    className='text-lg'
-                  />
-                ) : (
-                  <label
-                    htmlFor={todo.id}
-                    onDoubleClick={() => handleLabelDoubleClick(todo.id)}
-                    className='text-lg'
-                  >
-                    {todo.title}
-                  </label>
-                )}
-              </div>
-              <button type='button' onClick={() => handleDeleted(todo.id)}>
-              < FaTrashAlt />
-              </button>
-            </div>
-          );
-        })}
+        <TodoList
+          todoList={todoList}
+          handleChecked={handleChecked}
+          editTodoId={editTodoId}
+          handleEditChange={handleEditChange}
+          handleLabelDoubleClick={handleLabelDoubleClick}
+          handleLabelKeyPress={handleLabelKeyPress}
+          handleDeleted={handleDeleted}
+          setEditTodoId={setEditTodoId}
+        />
       </div>
     </div>
   );

@@ -1,11 +1,9 @@
-
-import Todo from './components/Todo';
-// import TodoList from './components/TodoList';
+import TodoApp from './components/TodoApp';
 
 function App() {
   return (
     <>
-      <Todo />
+      <TodoApp />
     </>
   );
 }

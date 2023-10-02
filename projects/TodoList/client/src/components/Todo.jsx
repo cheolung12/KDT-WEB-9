@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import { FaTrashAlt } from 'react-icons/fa'
 
 export default function Todo() {
   const [todo, setTodo] = useState('');
@@ -119,48 +120,68 @@ export default function Todo() {
   };
 
   return (
-    <div>
-      <input
-        type='text'
-        placeholder='Add your new Todo'
-        value={todo}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyPress}
-      />
-      <button type='button' onClick={addTodo}>
-        ADD
-      </button>
-      {todoList.map((todo) => {
-        return (
-          <div key={todo.id}>
-            <input
-              type='checkbox'
-              id={todo.id}
-              checked={todo.done}
-              onChange={(e) => handleChecked(e, todo.id)}
-            />
-            {editTodoId === todo.id ? (
-              <input
-                type='text'
-                value={todo.title}
-                onChange={(e) => handleEditChange(e, todo.id)}
-                onBlur={() => setEditTodoId(null)}
-                onKeyDown={(e) => handleLabelKeyPress(e, todo.id)}
-              />
-            ) : (
-              <label
-                htmlFor={todo.id}
-                onDoubleClick={() => handleLabelDoubleClick(todo.id)}
-              >
-                {todo.title}
-              </label>
-            )}
-            <button type='button' onClick={() => handleDeleted(todo.id)}>
-              Delete
-            </button>
-          </div>
-        );
-      })}
+    <div className='w-screen, h-screen flex justify-center items-center'>
+      <div className='flex-col justify-center items-center border-4 w-2/5 h-4/5'>
+        <div className='bg-blue-500 text-white w-full font-bold h-12 py-2 box-border flex justify-center items-center'>
+          ✌🏻 My Todo App
+        </div>
+        <div className='w-full flex justify-center items-center h-20 my-3'>
+          <input
+            type='text'
+            placeholder='Add your new Todo'
+            value={todo}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyPress}
+            className='box-border my-8 w-4/5  mr-3 border-b pb-2 focus:outline-none focus:border-blue-500'
+          />
+          <button
+            type='button'
+            onClick={addTodo}
+            className='bg-blue-500 text-white w-10 rounded-md h-10'
+          >
+            +
+          </button>
+        </div>
+        {todoList.map((todo) => {
+          return (
+            <div
+              key={todo.id}
+              className='box-border w-full px-8 flex justify-between items-center h-12'
+            >
+              <div>
+                <input
+                  type='checkbox'
+                  id={todo.id}
+                  checked={todo.done}
+                  onChange={(e) => handleChecked(e, todo.id)}
+                  className='mr-3 w-4 h-4'
+                />
+                {editTodoId === todo.id ? (
+                  <input
+                    type='text'
+                    value={todo.title}
+                    onChange={(e) => handleEditChange(e, todo.id)}
+                    onBlur={() => setEditTodoId(null)}
+                    onKeyDown={(e) => handleLabelKeyPress(e, todo.id)}
+                    className='text-lg'
+                  />
+                ) : (
+                  <label
+                    htmlFor={todo.id}
+                    onDoubleClick={() => handleLabelDoubleClick(todo.id)}
+                    className='text-lg'
+                  >
+                    {todo.title}
+                  </label>
+                )}
+              </div>
+              <button type='button' onClick={() => handleDeleted(todo.id)}>
+              < FaTrashAlt />
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

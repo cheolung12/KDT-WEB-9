@@ -1,53 +1,65 @@
-import { createStore } from 'redux';
+import React from 'react';
+import ReactDom from 'react-dom/client';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './store';
 
-const input = document.querySelector('input');
-const form = document.querySelector('form');
-const ul = document.querySelector('ul');
-const ADD_TODO = 'ADD_TODO';
-const DELETE_TODO = 'DELETE_TODO';
+const root = ReactDom.createRoot(document.getElementById('root'));
 
-const todoReducer = (state = [], action) => {
-    console.log(action.type);
-    switch(action.type){
-        case ADD_TODO:
-            const newTodo = { text: action.text, id: Date.now() };
-            return [ newTodo, ...state ];
-        case DELETE_TODO:
-            return state.filter(el => el.id !== action.id);
-        default:
-            return;
-    }
-}
+root.render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+);
+// import { createStore } from 'redux';
 
-const store = createStore(todoReducer);
+// const input = document.querySelector('input');
+// const form = document.querySelector('form');
+// const ul = document.querySelector('ul');
+// const ADD_TODO = 'ADD_TODO';
+// const DELETE_TODO = 'DELETE_TODO';
 
-const removeTodo = (id) => {
-    store.dispatch({type: DELETE_TODO, id});
-}
+// const todoReducer = (state = [], action) => {
+//     console.log(action.type);
+//     switch(action.type){
+//         case ADD_TODO:
+//             const newTodo = { text: action.text, id: Date.now() };
+//             return [ newTodo, ...state ];
+//         case DELETE_TODO:
+//             return state.filter(el => el.id !== action.id);
+//         default:
+//             return;
+//     }
+// }
 
-store.subscribe(() => {
-    console.log(store.getState());
-    const todos = store.getState();
-    ul.innerHTML = '';
-    todos.map(value => {
-        const li = document.createElement('li');
-        const btn  = document.createElement('button');
-        btn.addEventListener('click', () => removeTodo(value.id));
-        btn.innerText = '삭제';
-        li.id = value.id;
-        li.innerText = value.text;
-        li.appendChild(btn);
-        ul.appendChild(li);
-    });
+// const store = createStore(todoReducer);
 
-});
+// const removeTodo = (id) => {
+//     store.dispatch({type: DELETE_TODO, id});
+// }
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    store.dispatch({type: ADD_TODO, text: input.value});
-    input.value = '';
-});
+// store.subscribe(() => {
+//     console.log(store.getState());
+//     const todos = store.getState();
+//     ul.innerHTML = '';
+//     todos.map(value => {
+//         const li = document.createElement('li');
+//         const btn  = document.createElement('button');
+//         btn.addEventListener('click', () => removeTodo(value.id));
+//         btn.innerText = '삭제';
+//         li.id = value.id;
+//         li.innerText = value.text;
+//         li.appendChild(btn);
+//         ul.appendChild(li);
+//     });
 
+// });
+
+// form.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//     store.dispatch({type: ADD_TODO, text: input.value});
+//     input.value = '';
+// });
 
 // addButton.addEventListener('click', () => {
 //   todoStore.dispatch({ type: 'ADD_TODO' });

@@ -1,0 +1,1 @@
+console.log(printFunc<string>('hi', 'hello'));

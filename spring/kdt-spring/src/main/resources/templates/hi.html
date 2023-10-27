@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h4>th:text</h4>
+    <div th:text="${text}">안녕 반가워</div>
+    <hr />
+    <h4>th:utext</h4>
+    <div th:utext="${utext}"></div>
+    <hr />
+    <h4>th:value</h4>
+    <input type="text" th:value="${value}" />
+    <hr />
+    <h4>th:with</h4>
+    <div th:with="temp=${with}" th:text="${temp}"></div>
+    <hr />
+    <h4>th:href</h4>
+    <a th:href="@{${href}}">링크</a>
+    <hr />
+    <h4>th:src</h4>
+    <img th:src="${img}" />
+    <hr />
+    <h4>th:switch</h4>
+    <div th:switch="${case}">
+        <p th:case="'admin'">hello is admin</p>
+        <p th:case="'manage'">hello is manager</p>
+    </div>
+    <hr />
+    <h4>th:if</h4>
+    <p th:if="${case} == 'manager'" th:text="manager"}></p>
+    <p th:unless="${case} == 'manager'" th:text="${case}"}></p>
+    <hr />
+    <h4>th:each</h4>
+    <ul>
+        <li th:each="name:${each}">
+            <span th:text="${name}"></span>
+        </li>
+    </ul>
+    <hr />
+    <h4>class</h4>
+    <div th:text="${classHello.getAge()}"></div>
+    <br /><br /><br />
+    <p th:if="${classHello.getAge()} < 20" th:text="'10세는 미성년자입니다.'"}></p>
+    <p th:unless="${classHello.getAge()} < 20" th:text="'20세는 성인입니다.'"}></p>
+    <hr />
+
+</body>
+</html>

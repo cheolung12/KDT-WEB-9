@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<form id="form_practice">
+    <fieldset style="width: 300px">
+    이름 <input type="text" name="name"><br />
+        <legend>성별</legend>
+        <input type="radio" id="man" name="gender" value="남성">
+        <label for="man">남성</label>
+        <input type="radio" id="woman" name="gender" value="여성">
+        <label for="woman">여성</label><br />
+
+    <label for="year">년:</label>
+    <select id="year" name="year">
+        <option value="1997">1997</option>
+    </select>
+
+    <label for="month">월:</label>
+    <select id="month" name="month">
+        <option value="11">11월</option>
+        <option value="12">12월</option>
+    </select>
+
+    <label for="day">일:</label>
+    <select id="day" name="day">
+        <option value="10">10일</option>
+        <option value="11">11일</option>
+    </select><br />
+
+        관심사
+        <input type="checkbox" id="trip" name="hobby" value="여행">
+        <label for="trip">여행</label>
+        <input type="checkbox" id="fa" name="hobby" value="패션">
+        <label for="fa">패션</label>
+        <input type="checkbox" id="food" name="hobby" value="음식">
+        <label for="food">음식</label>
+    </fieldset>
+    <button type="button" onclick="form_post();">회원가입</button>
+</form>
+</body>
+<script>
+function form_post() {
+    var form = document.getElementById('form_practice');
+    axios.post(`/practice/post`, {name: form.name.value, gender: form.gender.value})
+    .then((res)=>{
+        console.log( `${res.data}회원가입 성공` );
+
+    });
+}
+</script>
+</html>

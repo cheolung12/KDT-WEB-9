@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Response</title>
+</head>
+<body>
+<p th:text="'이름 : ' + ${name}">.</p>
+<p th:text="'성별 : ' + ${gender}">.</p>
+<p th:text="'생년월일 : ' + ${year} + '년 ' + ${month} + '월 ' + ${day} + '일'">.</p>
+<p>관심사:
+  <span th:each="hobbyItem, iterStat : ${hobby}">
+                <span th:text="${hobbyItem}"></span>
+                <span th:if="${!iterStat.last}">, </span>
+            </span>
+</p>
+
+</body>
+</html>

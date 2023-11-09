@@ -27,5 +27,4 @@ public class UserEntity {
     // public enum UserType {
     //    STUDENT, TEACHER
     //}
-
 }

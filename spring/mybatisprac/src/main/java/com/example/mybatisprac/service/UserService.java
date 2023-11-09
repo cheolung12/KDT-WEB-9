@@ -21,46 +21,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-//    public List<UserDTO> getUserList() {
-//        List<UserEntity> result = userRepository.findAll();
-//        List<UserDTO> users = new ArrayList<>();
-//
-//        for(UserEntity user: result) {
-//            UserDTO userDTO = UserDTO.builder()
-//                    .id(user.getId())
-//                    .name(user.getName())
-//                    .nickname(user.getNickname())
-//                    .build();
-//            users.add(userDTO);
-//        }
-//        return users;
-//    }
-
-//    public String searchUser(String name) {
-//        List<UserEntity> result = userRepository.findByName(name);
-//        for(UserEntity user: result){
-//            System.out.println(user.getId() + user.getNickname());
-//        }
-//        return "";
-//    }
-
-//    public String searchId(int id) {
-
-//        // Optional: null일수도 있는 객체를 감싸는 wrapper 객체
-//        Optional<UserEntity> result = userRepository.findById(id);
-//        if(result.isPresent()){
-//            System.out.println(result.get().getName());
-//        } else {
-//            System.out.println("해당하는 친구 없음");
-//        }
-//        // optional 함수
-//        // isPresent(), isEmpty(), get() 등등
-//        // isPresent(): 객체의 여부를 boolean으로 반환
-//        // isEmpty(): isPresent()의 반대
-//        // get(): 옵셔널 내부의 객체를 반환
-//        return "";
-//    }
-
     // create
     public UserDTO.Response createUser(UserDTO.Request userDTO) {
 
@@ -98,21 +58,57 @@ public class UserService {
         return result;
     }
 
-//    public UserDTO.Response updateUser(int id) {
-//        // id 조회
-//        Optional<UserEntity> user =  userRepository.findById(id);
-//        //
-//    }
+    public UserDTO.Response updateUser(int id, UserDTO.Request userDTO) {
+        // id 조회
+        Optional<UserEntity> target =  userRepository.findById(id);
+        // 수정내역 반영해서 엔티티 생성 후 업데이트 하기
+        if(target.isPresent()){
+            UserEntity updated = UserEntity.builder()
+                    .id(id)
+                    .name(userDTO.getName())
+                    .nickname(userDTO.getNickname())
+                    .build();
+            userRepository.save(updated);
+            // DTO로 반환
+            return UserDTO.Response.builder()
+                    .id(id)
+                    .name(updated.getName())
+                    .nickname(updated.getNickname())
+                    .build();
+        } else {
+            log.info("update에러: 해당하는 user가 없습니다.");
+            return null;
+        }
+    }
+
+    // delete
+    public UserDTO.Response deleteUser(int id){
+        // id 조회
+        Optional<UserEntity> target =  userRepository.findById(id);
+        // 삭제
+        if(target.isPresent()){
+            userRepository.deleteById(id);
+            return UserDTO.Response.builder()
+                    .id(target.get().getId())
+                    .name(target.get().getName())
+                    .nickname(target.get().getNickname())
+                    .build();
+        }else {
+            log.info("delete에러: 해당하는 user가 없습니다.");
+            return null;
+        }
+    }
 
     // 사용자 이름과 일치하거나 닉네임과 일치할경우 조회
-//    public int searchNameOrNickname(String word) {
-//        List<UserEntity> result = userRepository.findByNameOrNickName(word, word);
-//        return result.size();
-//    }
-//
-//    public boolean checkUser(String name) {
-//        return userRepository.existsByName(name);
-//    }
+    public int searchNameOrNickname(String word) {
+        List<UserEntity> result = userRepository.findByNameOrNickname(word, word);
+        return result.size();
+    }
+
+    // 이름이 존재하는지 조회
+    public boolean checkUser(String name) {
+        return userRepository.existsByName(name);
+    }
 }
 
 

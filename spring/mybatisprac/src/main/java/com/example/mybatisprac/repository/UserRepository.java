@@ -16,18 +16,14 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 
     // findBy컬럼명: 해당 컬럼에서 조회해줌 (리스트타입으로)
     // findBy컬럼명And컬럼명: ex) findByNameAndNickname
-//    List<UserEntity> findByName(String name);
-//
-//    Optional<UserEntity> findById(int id);
-
 
     List<UserEntity> findByName(String name);
     Optional<UserEntity> findById(int id);
 
-//    List<UserEntity> findByNameOrNickName(String name, String nickname);
+    List<UserEntity> findByNameOrNickname(String name, String nickname);
     // 아래 처럼 쿼리를 사용해도됨
     // @Query(nativeQuery=ture, "select * from user where name=:word or nickname: word")
 
     // 회원가입할때 아이디나 이메일 중복검사용으로 사용
-//    boolean existsByName(String name);
+    boolean existsByName(String name);
 }
